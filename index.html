@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khalid Eid Hassan | SOC Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;text-decoration:none;border:none;outline:none;font-family:"Poppins",sans-serif}
+:root{--bg:#000;--bg2:#05060d;--text:#fff;--main:#0AFFFF;--blue:#0015FF;--line:rgba(10,255,255,.3)}
+html{font-size:62.5%;scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--bg);color:var(--text);font-size:1.6rem}
+:focus-visible{outline:2px solid var(--main);outline-offset:3px}
+::-webkit-scrollbar{width:10px}::-webkit-scrollbar-thumb{background:var(--blue);border-radius:5px}::-webkit-scrollbar-track{background:var(--bg)}
+span.c{color:var(--main)}
+/* header */
+.header{position:fixed;top:0;left:0;width:100%;padding:2rem 6%;background:rgba(0,0,0,.45);backdrop-filter:blur(10px);display:flex;justify-content:space-between;align-items:center;z-index:300}
+.logo{font-size:2.8rem;font-weight:800;color:var(--text)}.logo span{color:var(--main);text-shadow:0 0 20px var(--blue)}
+.navbar a{font-size:1.6rem;color:var(--text);margin-left:2.4rem;font-weight:500;border-bottom:3px solid transparent;transition:.3s}
+.navbar a:hover,.navbar a.active{color:var(--main);border-bottom-color:var(--main)}
+.menu-toggle{display:none;flex-direction:column;gap:5px;width:40px;height:40px;justify-content:center;align-items:center;background:none;cursor:pointer;z-index:310}
+.menu-toggle i{display:block;width:24px;height:2px;background:var(--main);transition:.3s}
+.menu-toggle.on i:nth-child(1){transform:translateY(7px) rotate(45deg)}.menu-toggle.on i:nth-child(2){opacity:0}.menu-toggle.on i:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+section{position:relative;z-index:1;min-height:100vh;padding:11rem 10% 8rem}
+.heading{font-size:5.6rem;text-align:center;margin-bottom:6rem;font-weight:700}
+/* global animated background (fixed behind all sections) */
+.bg-fx{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:var(--bg)}
+.stars,.waves{position:absolute;pointer-events:none}
+.stars{inset:0}.stars i{position:absolute;border-radius:50%;background:#fff;opacity:.2;animation:tw 2s ease-in-out infinite}
+@keyframes tw{50%{opacity:.7}}
+.waves{bottom:0;left:0;width:100%;height:50%}.waves svg{position:absolute;bottom:0;left:0;width:200%;height:100%;animation:ws 18s linear infinite}
+.waves svg:nth-child(2){animation-duration:12s;animation-direction:reverse}
+@keyframes ws{to{transform:translateX(-50%)}}
+.waves path{fill:none;stroke:var(--main);stroke-width:2;opacity:.14}.waves svg:nth-child(2) path{stroke:var(--blue);opacity:.5}
+/* home */
+.home{display:flex;align-items:center;justify-content:center;gap:10rem}
+.home-content,.home-img{position:relative;z-index:1}
+.home-content h3{font-size:3rem;margin:1rem 0 1.5rem}
+.home-content h1{font-size:6rem;line-height:1.05;margin-top:1rem}
+.typing{font-size:3.2rem;font-weight:600;min-height:4.8rem;margin-bottom:2rem;color:var(--main)}
+.typing::after{content:"";border-left:3px solid var(--main);margin-left:4px;animation:blink .7s infinite}
+@keyframes blink{50%{border-color:transparent}}
+.home-content p{font-size:1.6rem;line-height:1.9;max-width:620px;color:rgba(255,255,255,.88)}
+.social{margin:3rem 0}
+.social a{display:inline-flex;width:4.5rem;height:4.5rem;border:2px solid var(--main);border-radius:50%;color:var(--main);font-size:1.7rem;font-weight:700;justify-content:center;align-items:center;margin-right:1rem;transition:.3s}
+.social a:hover{background:var(--main);color:#000;box-shadow:0 0 25px var(--main);transform:translateY(-5px)}
+.btn{display:inline-block;padding:1.1rem 3rem;background:linear-gradient(90deg,var(--blue),var(--main));box-shadow:0 0 25px rgba(10,255,255,.5);border-radius:4rem;font-size:1.6rem;color:#000;font-weight:600;letter-spacing:.1rem;cursor:pointer;transition:.3s}
+.btn:hover{transform:scale(1.05);box-shadow:0 0 45px var(--main)}
+.btn.alt{background:#000;color:var(--main);border:2px solid var(--main);box-shadow:none;margin-left:1.2rem}
+.btn.alt:hover{background:var(--main);color:#000}
+.avatar{width:min(30vw,340px);aspect-ratio:1;border-radius:15%;box-shadow:0 0 25px var(--blue),0 0 60px rgba(10,255,255,.25);overflow:hidden;background:linear-gradient(135deg,var(--blue),#000);display:flex;align-items:center;justify-content:center;font-size:8rem;font-weight:800;color:var(--main);transition:.4s}
+.avatar:hover{box-shadow:0 0 25px var(--main),0 0 70px var(--main)}
+.avatar img{width:100%;height:100%;object-fit:cover}
+/* timeline */
+.education{background:rgba(5,6,13,.4)}
+.timeline{max-width:1000px;margin:0 auto;position:relative}
+.timeline::before{content:"";position:absolute;width:3px;height:100%;left:50%;transform:translateX(-50%);background:linear-gradient(180deg,var(--main),var(--blue))}
+.t-item{position:relative;margin-bottom:4rem}
+.t-dot{position:absolute;left:50%;top:25px;width:18px;height:18px;transform:translateX(-50%);border-radius:50%;background:var(--main);border:3px solid var(--bg2);box-shadow:0 0 15px var(--main);z-index:2}
+.t-date{font-weight:700;color:var(--main);margin-bottom:1rem;font-size:1.5rem}
+.t-card{background:#000;border:2px solid var(--line);padding:2.4rem;border-radius:1.5rem;width:calc(50% - 40px);transition:.3s}
+.t-card:hover{border-color:var(--main);box-shadow:0 0 25px rgba(10,255,255,.25);transform:translateY(-3px)}
+.t-item:nth-child(odd) .t-card{margin-right:calc(50% + 40px);margin-left:auto}
+.t-item:nth-child(even) .t-card{margin-left:calc(50% + 40px)}
+.t-item:nth-child(odd) .t-date{text-align:right;padding-right:calc(50% + 40px)}
+.t-item:nth-child(even) .t-date{padding-left:calc(50% + 40px)}
+.badge{display:inline-block;padding:.35rem 1.2rem;border-radius:2rem;font-size:1.1rem;font-weight:600;margin-bottom:1rem;border:1px solid var(--line);color:var(--main);background:rgba(10,255,255,.1)}
+.badge.p{color:#9aa4ff;border-color:rgba(0,21,255,.8);background:rgba(0,21,255,.2)}
+.t-card h3{font-size:1.9rem;margin-bottom:.6rem}.t-card .org{color:var(--main);font-size:1.4rem}
+/* skills */
+.skills-wrap{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:3.5rem}
+.cat{background:rgba(5,6,13,.85);border:1px solid var(--line);border-radius:1.5rem;padding:2.5rem;transition:.3s}
+.cat:hover{box-shadow:0 0 25px rgba(0,21,255,.5);border-color:var(--main)}
+.cat h3{color:var(--main);font-size:2rem;margin-bottom:2rem}
+.chips{display:flex;flex-wrap:wrap;gap:1.2rem}
+.chip{background:#000;border:1px solid rgba(255,255,255,.12);border-radius:1rem;padding:1rem 1.6rem;font-size:1.4rem;transition:.3s}
+.chip:hover{border-color:var(--main);transform:translateY(-3px);box-shadow:0 5px 20px rgba(10,255,255,.2)}
+/* projects */
+.projects{background:rgba(5,6,13,.4)}
+.p-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:4rem}
+.p-box{position:relative;overflow:hidden;border-radius:2rem;box-shadow:0 0 1.2rem var(--blue);background:#000;border:1px solid var(--line);display:flex;flex-direction:column;min-height:430px}
+.p-top{height:150px;background:linear-gradient(135deg,var(--blue),#000 70%);display:flex;align-items:center;justify-content:center;font-size:4.4rem;font-weight:800;color:var(--main);text-shadow:0 0 25px var(--main)}
+.p-body{padding:2.4rem;flex:1}
+.p-body h3{font-size:2.1rem;color:var(--main);margin-bottom:.4rem}.p-body .sub{font-size:1.3rem;opacity:.7;margin-bottom:1.4rem}
+.p-body li{font-size:1.4rem;line-height:1.7;margin:0 0 .8rem 1.8rem;color:rgba(255,255,255,.88)}
+.tags{margin-top:1.4rem;display:flex;flex-wrap:wrap;gap:.8rem}.tags b{font-size:1.2rem;font-weight:500;padding:.4rem 1.1rem;border:1px solid var(--main);border-radius:2rem;color:var(--main)}
+/* experience */
+.svc-wrap{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:3rem}
+.svc{border:2px solid var(--main);border-radius:3rem;padding:3rem;background:rgba(0,0,0,.85);box-shadow:0 0 15px rgba(10,255,255,.2);transition:.4s}
+.svc:hover{transform:scale(1.03);box-shadow:0 0 30px var(--main)}
+.svc h4{color:var(--main);font-size:2.2rem;margin-bottom:1.4rem}.svc p{font-size:1.4rem;line-height:1.85}
+/* contact */
+.contact{background:rgba(5,6,13,.4)}
+.info{text-align:center;font-size:1.6rem;line-height:2.2;margin-bottom:3rem}.info a{color:var(--main)}
+form{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:1.6rem}
+form input,form textarea{width:100%;padding:2rem;font-size:1.6rem;color:#fff;background:#000;border:2px solid var(--main);border-radius:2rem;resize:none}
+form input:focus,form textarea:focus{box-shadow:0 0 20px var(--blue)}
+form .btn{align-self:center;margin-top:1rem}
+footer{position:relative;z-index:1;padding:4rem 6%;text-align:center;background:rgba(0,0,0,.6);font-size:1.4rem}
+footer ul{list-style:none;margin-bottom:2rem}footer li{display:inline-block;padding:0 1.4rem;line-height:2.6}footer a{color:#fff;border-bottom:3px solid transparent;transition:.3s}footer a:hover{border-color:var(--main)}
+/* preloader */
+#pre{position:fixed;inset:0;background:#000;z-index:9999;display:flex;align-items:center;justify-content:center;transition:opacity .6s,visibility .6s}
+#pre.out{opacity:0;visibility:hidden}
+#pre div{width:110px;height:110px;border-radius:50%;border:3px solid var(--blue);border-top-color:var(--main);display:flex;align-items:center;justify-content:center;font-size:3.2rem;font-weight:800;color:var(--main);animation:sp 1.2s linear infinite}
+#pre b{animation:sp 1.2s linear infinite reverse}
+@keyframes sp{to{transform:rotate(360deg)}}
+@media(max-width:1100px){.svc-wrap{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:991px){
+.menu-toggle{display:flex}
+.navbar{position:fixed;top:0;right:0;width:min(85vw,380px);height:100dvh;padding:90px 1.5rem 2rem;background:rgba(5,6,13,.98);border-left:1px solid var(--line);display:flex;flex-direction:column;transform:translateX(100%);transition:transform .35s;z-index:305}
+.navbar.on{transform:none}.navbar a{margin:.2rem 0;padding:1rem 1.2rem;border:none;border-left:3px solid transparent}
+.navbar a.active,.navbar a:hover{border-left-color:var(--main)}
+section{padding:10rem 5% 6rem}
+.home{flex-direction:column-reverse;gap:4rem}.home-content h1{font-size:4.6rem}.avatar{width:55vw}
+.timeline::before{left:20px}.t-dot{left:20px}
+.t-item:nth-child(n) .t-card{margin:0 0 0 50px;width:calc(100% - 50px)}
+.t-item:nth-child(n) .t-date{text-align:left;padding:0 0 0 50px}
+.skills-wrap,.p-grid,.svc-wrap{grid-template-columns:1fr}
+.heading{font-size:4rem}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div id="pre"><div><b>KH</b></div></div>
+
+<!-- Global animated background (shared by all sections) -->
+<div class="bg-fx">
+  <div class="stars" id="stars"></div>
+  <div class="waves"><svg viewBox="0 0 2880 320" preserveAspectRatio="none"><path id="w1"/></svg><svg viewBox="0 0 2880 320" preserveAspectRatio="none"><path id="w2"/></svg></div>
+</div>
+
+<header class="header">
+  <a href="#home" class="logo">Khalid<span> Eid</span></a>
+  <button class="menu-toggle" id="menu" aria-label="Menu" aria-expanded="false"><i></i><i></i><i></i></button>
+  <nav class="navbar" id="nav">
+    <a href="#home">Home</a><a href="#education">Education</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="home" id="home">
+  <div class="home-content">
+    <h3>Hi, I'm <span class="c">Khalid Eid Hassan</span></h3>
+    <h1>I'm a</h1>
+    <div class="typing" id="typing"></div>
+    <p>Detail-oriented SOC Analyst with a strong foundation in security monitoring, incident response and threat hunting. I build custom security tools to anticipate threats, and turn complex findings into actionable intelligence for stakeholders.</p>
+    <div class="social">
+      <a href="https://linkedin.com/in/khalid-eid" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+      <a href="mailto:khalidehassan2004@gmail.com" aria-label="Email">@</a>
+      <a href="tel:+201127040028" aria-label="Phone">&#9742;</a>
+    </div>
+    <a class="btn" href="#contact">Hire Me</a><a class="btn alt" href="#projects">My Projects</a>
+  </div>
+  <div class="home-img">
+    <div class="avatar">
+      <!-- Put your photo in an "img" folder next to this file with this exact name -->
+      <img src="khalid.jpeg" alt="Khalid Eid Hassan" onerror="this.remove();this.parentNode.textContent='KH'">
+    </div>
+  </div>
+</section>
+
+<section class="education" id="education">
+  <h2 class="heading">Education &amp; <span class="c">Training</span></h2>
+  <div class="timeline" id="timeline"></div>
+</section>
+
+<section class="skills" id="skills">
+  <h2 class="heading">My <span class="c">Skills</span></h2>
+  <div class="skills-wrap" id="skillsWrap"></div>
+</section>
+
+<section class="projects" id="projects">
+  <h2 class="heading">My <span class="c">Projects</span></h2>
+  <div class="p-grid" id="pGrid"></div>
+</section>
+
+<section id="experience">
+  <h2 class="heading">Hands-on <span class="c">Experience</span></h2>
+  <div class="svc-wrap" id="svcWrap"></div>
+</section>
+
+<section class="contact" id="contact">
+  <h2 class="heading">Contact <span class="c">Me</span></h2>
+  <div class="info">Qus, Qena, Egypt<br><a href="tel:+201127040028">+20 112 704 0028</a> &nbsp;|&nbsp; <a href="mailto:khalidehassan2004@gmail.com">khalidehassan2004@gmail.com</a></div>
+  <form id="form">
+    <input type="text" id="fn" placeholder="Your name" required>
+    <input type="email" id="fe" placeholder="Your email" required>
+    <textarea id="fm" rows="7" placeholder="Your message" required></textarea>
+    <button class="btn" type="submit">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  <ul><li><a href="#home">Home</a></li><li><a href="#education">Education</a></li><li><a href="#skills">Skills</a></li><li><a href="#projects">Projects</a></li><li><a href="#contact">Contact</a></li></ul>
+  &copy; Khalid Eid Hassan || All Rights Reserved
+</footer>
+
+<script>
+const $=s=>document.querySelector(s);
+/* data from CV */
+const timeline=[
+ ["Expected July 2027","In Progress","B.Sc. in Information Technology","New Assiut Technological University","p"],
+ ["March 2026","CTF","LUXSAI CTF","Ranked 29th out of all participants",""],
+ ["2026","Completed","SOC Level 1","TryHackMe",""],
+ ["2026","Completed","Security Operations Fundamentals","Palo Alto Networks Cybersecurity Academy",""],
+ ["2026","Completed","Cybersecurity for Beginners (8-course track)","ITI Mahara-Tech Cybersecurity Academy",""],
+ ["2026","Completed","Red Hat System Administration I (RHSA I)","ITI Mahara-Tech",""],
+ ["2026","Completed","Pre Security","TryHackMe",""],
+ ["2025","Completed","Soft Skills for the Job Market","TCM Security",""],
+ ["2024","Completed","Python Programming Basics","ITI Mahara-Tech AI Academy",""]];
+const skills={
+ "Security Operations":["SIEM: Wazuh","SIEM: Splunk","EDR: CrowdStrike","EDR: SentinelOne","Incident Response","Threat Hunting","Threat Intelligence"],
+ "Network & Web Security":["Wireshark","Nmap","Tcpdump","Log & Traffic Analysis","Vulnerability Management","OWASP Top 10"],
+ "Frameworks & Automation":["MITRE ATT&CK","Python Security Automation","Linux System Administration"],
+ "Languages":["Arabic: Native","English: Professional Working Proficiency"]};
+const projects=[
+ ["HR","HR Assistant","Employee Attendance & Performance Platform",
+  ["Secure full-stack HR platform with Role-Based Access Control (RBAC) protecting sensitive employee data.","AI-driven chatbot that resolves internal queries and reduces administrative overhead.","Secure logging and monitoring of attendance, ensuring non-repudiation and auditability.","Secure session management and input validation against OWASP Top 10 vulnerabilities."],["RBAC","AI Chatbot","OWASP","Logging"]],
+ ["VS","Vulnerability Scanner","Port & Security Header Analysis Tool",
+  ["Python tool that finds exposed services and assesses network attack surfaces.","Header analysis engine that flags misconfigured controls and maps them to 40+ MITRE ATT&CK techniques.","Automates detection of critical web vulnerabilities, cutting manual assessment time.","Correlates open ports with likely service-level exploits for a prioritized remediation roadmap."],["Python","MITRE ATT&CK","Nmap-style scanning","Reporting"]]];
+const exp=[
+ ["Log Analysis & SIEM Operations","Parsing, correlating and analyzing security logs from multiple sources to spot suspicious activity. Practiced through extensive labs on TryHackMe, Cyber Defenders and Let's Defend, including event log correlation, alert tuning and false positive management."],
+ ["Incident Response & Forensics","Analyzing real-world breach scenarios, reconstructing timelines and investigating compromised systems. Identifying IOCs, attack patterns and lateral movement aligned with MITRE ATT&CK."],
+ ["Threat Hunting & Detection","Proactively hunting APTs and zero-day indicators by correlating logs, PCAP network traffic and endpoint telemetry. Detecting data exfiltration, C2 communications and post-exploitation activity."]];
+const esc=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;");
+/* render */
+$("#timeline").innerHTML=timeline.map(t=>`<div class="t-item"><div class="t-dot"></div><div class="t-date">${esc(t[0])}</div><div class="t-card"><span class="badge ${t[4]}">${t[1]}</span><h3>${esc(t[2])}</h3><p class="org">${esc(t[3])}</p></div></div>`).join("");
+$("#skillsWrap").innerHTML=Object.entries(skills).map(([k,v])=>`<div class="cat"><h3>${esc(k)}</h3><div class="chips">${v.map(x=>`<span class="chip">${esc(x)}</span>`).join("")}</div></div>`).join("");
+$("#pGrid").innerHTML=projects.map(p=>`<article class="p-box"><div class="p-top">${p[0]}</div><div class="p-body"><h3>${p[1]}</h3><p class="sub">${esc(p[2])}</p><ul>${p[3].map(l=>`<li>${esc(l)}</li>`).join("")}</ul><div class="tags">${p[4].map(t=>`<b>${t}</b>`).join("")}</div></div></article>`).join("");
+$("#svcWrap").innerHTML=exp.map(e=>`<div class="svc"><h4>${esc(e[0])}</h4><p>${esc(e[1])}</p></div>`).join("");
+/* stars + waves (global background) */
+$("#stars").innerHTML=Array.from({length:110},()=>{const s=1+Math.random()*3;return `<i style="width:${s}px;height:${s}px;top:${Math.random()*100}%;left:${Math.random()*100}%;animation-delay:${Math.random()*2}s"></i>`}).join("");
+function wave(y,a,f,p){let d="M0 "+y;for(let x=0;x<=2880;x+=8)d+=" L"+x+" "+(y+Math.sin(x*f+p)*a+Math.sin(x*f*.5+p*1.3)*a*.3).toFixed(1);return d}
+$("#w1").setAttribute("d",wave(200,30,.0044,0));$("#w2").setAttribute("d",wave(245,20,.0066,2));
+/* typing */
+const roles=["SOC Analyst","Threat Hunter","Incident Responder","Security Automation with Python"];let r=0,c=0,del=false;
+(function type(){const el=$("#typing"),w=roles[r];el.textContent=w.slice(0,c);
+ if(!del&&c<w.length){c++;setTimeout(type,90)}else if(!del){del=true;setTimeout(type,1400)}
+ else if(c>0){c--;setTimeout(type,45)}else{del=false;r=(r+1)%roles.length;setTimeout(type,300)}})();
+/* nav */
+const nav=$("#nav"),menu=$("#menu");
+function toggle(on){nav.classList.toggle("on",on);menu.classList.toggle("on",on);menu.setAttribute("aria-expanded",on)}
+menu.onclick=()=>toggle(!nav.classList.contains("on"));
+nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>toggle(false)));
+document.addEventListener("keydown",e=>{if(e.key==="Escape")toggle(false)});
+const links=[...nav.querySelectorAll("a")];
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.toggle("active",l.getAttribute("href")==="#"+e.target.id))}}),{rootMargin:"-40% 0px -50% 0px"});
+document.querySelectorAll("section[id]").forEach(s=>io.observe(s));
+/* contact (opens the visitor's mail app) */
+$("#form").addEventListener("submit",e=>{e.preventDefault();
+ const b=`Name: ${$("#fn").value}\nEmail: ${$("#fe").value}\n\n${$("#fm").value}`;
+ location.href="mailto:khalidehassan2004@gmail.com?subject="+encodeURIComponent("Portfolio message from "+$("#fn").value)+"&body="+encodeURIComponent(b)});
+/* preloader */
+window.addEventListener("load",()=>setTimeout(()=>{$("#pre").classList.add("out");setTimeout(()=>$("#pre").remove(),700)},900));
+</script>
+</body>
+</html>
